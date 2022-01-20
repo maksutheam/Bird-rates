@@ -9,6 +9,7 @@ export var is_player := true
 var total_fighters: int
 
 func _ready():
+	print_debug(global.current_target)
 	if is_player:
 		player.show()
 		set_fighters(global.allies)

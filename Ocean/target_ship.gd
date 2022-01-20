@@ -9,14 +9,14 @@ extends Node
 #	"danger": 0,
 #	"loot": 0}
 var id = 0
-var ship_type = 0
+var ship_type = ""
 var danger = 1
 var loot = 1
 
 func make_new_target():
 	randomize()
 	var rand_id = randi() % 5
-	var rand_danger = randi() % global.max_danger
+	var rand_danger = randi() % 3
 	
 	ship_type = rand_id
 	

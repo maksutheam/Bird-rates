@@ -30,4 +30,4 @@ func _process(delta):
 func _on_TargetButton_pressed():
 	global.current_target = target
 	print_debug(global.current_target)
-
+	print_debug(global.current_target.danger)

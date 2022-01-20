@@ -19,9 +19,14 @@ onready var patience = $Offeree/HBoxContainer/Portrait/Patience/PatienceBar
 
 var player_offer_percent := 0
 var player_investment := 0
-var max_ransom := 0 #max % of loot the enemy will give up on
+
 var min_share := 0 #min % the investor is fine with getting
 var max_investment := 0 # max € the investor can give to the player
+
+var max_robbery := 0 #max % of loot the enemy will give up on
+
+var max_ransom := 0 #max € the ship owner can give to the player when holding for ransom
+
 var max_patience := 3 #how much the player can ask before they give up
 
 enum States {INVEST, NEGOTITATE, HOSTAGE}
@@ -30,9 +35,7 @@ export var current_state: int
 signal go_back
 
 func _ready():
-	
 	set_state(current_state)
-
 
 func check_offer():
 	if current_state == States.INVEST: #Investointi
@@ -57,16 +60,15 @@ func check_offer():
 		if patience >= max_patience:
 			dialog = "Enough, eat lead!"
 			offer_button.disabled = true
-		if player_offer_percent < max_ransom:
+		if player_offer_percent < max_robbery:
 			#Good deal
 			dialog = "Fine, you can have that if you leave us alone"
-		elif player_offer_percent > max_ransom:
+		elif player_offer_percent > max_robbery:
 			dialog = "Not giving up on that much loot"
 		
 		patience.value += 1
 	elif current_state == States.HOSTAGE:
 		pass
-	
 
 
 func _on_SpinBox_value_changed(value):
@@ -94,12 +96,18 @@ func set_state(new_state):
 			share.visible = false
 			back_button.visible = true
 			patience.visible = false
-			budget_label.text = "Give me this much € and you get your boat back:"
+			budget_label.text = "Give me this much € and you get your boat and crew back:"
+
+
+func calculate_offers():
+	pass
 
 
 func _on_OfferButton_pressed():
 	player_offer_percent = share_bar.value
 	player_investment = budget_amount
+	if current_state == 3:
+		global.food -= global.allies
 	check_offer()
 
 

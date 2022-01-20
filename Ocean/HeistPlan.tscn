@@ -4,7 +4,7 @@
 [ext_resource path="res://cool_theme.tres" type="Theme" id=2]
 [ext_resource path="res://Big_UI.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Medium_UI.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Art/UI/Danger.PNG" type="Texture" id=5]
+[ext_resource path="res://Sea.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MainUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://SelectTarget.gd" type="Script" id=7]
 [ext_resource path="res://Negotiation.tscn" type="PackedScene" id=8]
@@ -91,7 +91,7 @@ price = 10
 [node name="Food" parent="CanvasLayer/VBoxContainer/Control/Black Market" instance=ExtResource( 10 )]
 margin_left = 407.0
 item = "Food"
-description = "1 Spent each day. If you don't have any, you starve!"
+description = "1 Spent each day per person. If you don't have any, you starve!"
 price = 1
 
 [node name="Get Funding" parent="CanvasLayer/VBoxContainer/Control" instance=ExtResource( 8 )]
@@ -106,6 +106,7 @@ margin_top = 47.0
 margin_right = -4.0
 margin_bottom = -4.0
 script = ExtResource( 12 )
+sea = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Control/Set Sail"]
 margin_right = 811.0
@@ -158,14 +159,13 @@ margin_bottom = 40.0
 theme = ExtResource( 2 )
 text = "Crew:"
 
-[node name="Go" type="TextureButton" parent="CanvasLayer/VBoxContainer/Control/Set Sail/Info"]
+[node name="Go" type="Button" parent="CanvasLayer/VBoxContainer/Control/Set Sail/Info"]
 margin_left = 407.0
 margin_right = 811.0
 margin_bottom = 130.0
 size_flags_horizontal = 3
-texture_normal = ExtResource( 5 )
-expand = true
-stretch_mode = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Go"
 
 [node name="MainUI" parent="CanvasLayer/VBoxContainer" instance=ExtResource( 6 )]
 anchor_left = 0.0
