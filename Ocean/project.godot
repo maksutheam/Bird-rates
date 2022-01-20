@@ -8,10 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Sprite",
+"class": "Gunman",
+"language": "GDScript",
+"path": "res://Gunman.gd"
+}, {
+"base": "Node",
+"class": "TargetShip",
+"language": "GDScript",
+"path": "res://target_ship.gd"
+} ]
+_global_script_class_icons={
+"Gunman": "",
+"TargetShip": ""
+}
+
 [application]
 
 config/name="Uusi Peliprojekti"
 config/icon="res://icon.png"
+
+[autoload]
+
+global="*res://global.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/todo-cards/plugin.cfg" )
 
 [physics]
 
