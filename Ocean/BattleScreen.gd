@@ -1,8 +1,10 @@
 extends VBoxContainer
 
 
+onready var selected_target = $SelectedTarget
+
 var player_gunmen = global.allies
-var enemy_gunmen = global.current_target.danger
+var enemy_gunmen = global.crnt_target_danger
 
 onready var player_field = $Fighters/Player
 onready var enemy_field = $Fighters/Enemy

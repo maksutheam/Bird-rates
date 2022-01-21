@@ -13,6 +13,7 @@ var ship_type = ""
 var danger = 1
 var loot = 1
 
+
 func make_new_target():
 	randomize()
 	var rand_id = randi() % 5

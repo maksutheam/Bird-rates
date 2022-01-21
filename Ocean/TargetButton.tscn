@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://cool_theme.tres" type="Theme" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Small_UI.tres" type="DynamicFont" id=4]
 [ext_resource path="res://TargetButton.gd" type="Script" id=5]
 [ext_resource path="res://target_ship.gd" type="Script" id=6]
+[ext_resource path="res://SelectedTarget.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ButtonGroup" id=1]
 resource_name = "TargetGroup"
@@ -77,9 +78,6 @@ value = 1.0
 rounded = true
 percent_visible = false
 
-[node name="TargetShip" type="Node" parent="."]
-script = ExtResource( 6 )
-
 [node name="SelectShip" type="Label" parent="."]
 visible = false
 anchor_right = 1.0
@@ -91,5 +89,10 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SelectedTarget" parent="." instance=ExtResource( 7 )]
+
+[node name="TargetShip" type="Node" parent="."]
+script = ExtResource( 6 )
 
 [connection signal="pressed" from="." to="." method="_on_TargetButton_pressed"]

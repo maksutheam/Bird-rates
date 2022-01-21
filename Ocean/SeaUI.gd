@@ -4,6 +4,9 @@ extends Control
 onready var negotiation = $Negotiation
 onready var battle = $BattleScreen
 onready var battle_won = $BattleWonScreen
+onready var target_ship = $TargetShip
+
+
 
 func _ready():
 	negotiation.hide()
