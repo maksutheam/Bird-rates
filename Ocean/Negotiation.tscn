@@ -71,6 +71,7 @@ margin_bottom = 107.0
 size_flags_horizontal = 14
 size_flags_vertical = 3
 min_value = 1.0
+max_value = 99.0
 value = 1.0
 align = 1
 suffix = "00"

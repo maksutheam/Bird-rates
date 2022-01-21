@@ -4,8 +4,8 @@ extends Control
 onready var negotiation = $Negotiation
 onready var battle = $BattleScreen
 onready var battle_won = $BattleWonScreen
-onready var target_ship = $TargetShip
 
+export(PackedScene) var results
 
 
 func _ready():
@@ -38,7 +38,7 @@ func _on_BattleScreen_battle_won():
 
 
 func _on_Loot_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to(results)
 
 
 func _on_Ransom_pressed():

@@ -18,7 +18,7 @@ onready var back_button = $Offeree/HBoxContainer/Buttons/Leave
 onready var patience = $Offeree/HBoxContainer/Portrait/Patience/PatienceBar
 
 var player_offer_percent := 0
-var player_investment := 0
+var player_investment: int = 0
 
 var min_share := 0 #min % the investor is fine with getting
 var max_investment := 0 # max € the investor can give to the player
@@ -28,6 +28,7 @@ var max_robbery := 0 #max % of loot the enemy will give up on
 var max_ransom := 0 #max € the ship owner can give to the player when holding for ransom
 
 var max_patience := 3 #how much the player can ask before they give up
+
 
 enum States {INVEST, NEGOTITATE, HOSTAGE}
 export var current_state: int
@@ -85,27 +86,32 @@ func set_state(new_state):
 			patience.visible = true
 			budget_label.text = "I need this much:"
 			share_comment.text = "I'll give you this % of the loot:"
+			dialog = "So, which ship are you boarding exactly?"
 		1:#Negotiate
 			budget.visible = false
 			share.visible = true
 			back_button.visible = true
 			patience.visible = true
 			share_comment.text = "Hand over this % of the loot, and nobody gets hurt:"
+			dialog = "How much to leave us alone?"
 		2:#Hostage
 			budget.visible = true
 			share.visible = false
 			back_button.visible = true
 			patience.visible = false
 			budget_label.text = "Give me this much € and you get your boat and crew back:"
+			dialog = "How much for you to give my crew back?"
 
 
 func calculate_offers():
-	pass
+	min_share = (randi() % 50 + 1) - (global.crnt_target_danger * 2) #int from 1 to 50 minus danger
+	max_investment = (global.crnt_target_danger + 9)
+	max_robbery = (global.crnt_target_danger + global.danger)
 
 
 func _on_OfferButton_pressed():
 	player_offer_percent = share_bar.value
-	player_investment = budget_amount
+	player_investment = budget_amount.value
 	if current_state == 3:
 		global.food -= global.allies
 	check_offer()
