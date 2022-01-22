@@ -75,6 +75,7 @@ func check_offer():
 		if player_offer_percent < max_robbery:
 			#Good deal
 			dialog.text = "Fine, you can have that if you leave us alone."
+			accept_button.disabled = false
 		elif player_offer_percent > max_robbery:
 			dialog.text = "Not giving up on that much loot!"
 		
@@ -82,8 +83,10 @@ func check_offer():
 	elif current_state == States.HOSTAGE:
 		if player_investment > max_ransom:
 			dialog.text = "I am sorry, I do not have that much money."
+			accept_button.disabled = true
 		elif player_investment <= max_ransom:
 			dialog.text = "So be it then."
+			accept_button.disabled = false
 
 
 func _on_SpinBox_value_changed(value):
@@ -125,6 +128,8 @@ func set_state(new_state):
 			dialog.text = "How much for you to give my crew back?"
 			portrait.texture = kapteeni
 			offer_button.text = "Make offer (+1 day)"
+	
+	accept_button.disabled = true
 
 
 func calculate_offers():

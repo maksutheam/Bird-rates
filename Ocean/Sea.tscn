@@ -270,7 +270,6 @@ text = "Negotiate"
 [node name="SelectedTarget" parent="SeaUI/BattleScreen" instance=ExtResource( 15 )]
 
 [node name="TutorialDialog" parent="SeaUI" instance=ExtResource( 17 )]
-visible = true
 margin_left = 515.0
 margin_top = 21.0
 margin_right = 840.0
