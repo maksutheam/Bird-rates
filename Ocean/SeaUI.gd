@@ -38,6 +38,7 @@ func _on_BattleScreen_battle_won():
 
 
 func _on_Loot_pressed():
+	global.loot_gained = (global.crnt_target_danger + 2)
 	get_tree().change_scene_to(results)
 
 

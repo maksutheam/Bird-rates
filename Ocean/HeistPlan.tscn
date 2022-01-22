@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://TargetButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://cool_theme.tres" type="Theme" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://ShopItem.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Black Market.gd" type="Script" id=11]
 [ext_resource path="res://Set Sail.gd" type="Script" id=12]
+[ext_resource path="res://Art/UI/Mercenary.PNG" type="Texture" id=13]
 
 [sub_resource type="ButtonGroup" id=1]
 resource_name = "TargetGroup"
@@ -40,7 +41,7 @@ text = "Plan Heist"
 [node name="Control" type="TabContainer" parent="CanvasLayer/VBoxContainer"]
 margin_top = 86.0
 margin_right = 819.0
-margin_bottom = 433.0
+margin_bottom = 436.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
@@ -59,16 +60,17 @@ script = ExtResource( 7 )
 button_group = ExtResource( 9 )
 
 [node name="TargetButton" parent="CanvasLayer/VBoxContainer/Control/Select Target" instance=ExtResource( 1 )]
-margin_bottom = 96.0
+margin_bottom = 97.0
 group = ExtResource( 9 )
 
 [node name="TargetButton2" parent="CanvasLayer/VBoxContainer/Control/Select Target" instance=ExtResource( 1 )]
-margin_top = 100.0
-margin_bottom = 196.0
+margin_top = 101.0
+margin_bottom = 198.0
 group = ExtResource( 9 )
 
 [node name="TargetButton3" parent="CanvasLayer/VBoxContainer/Control/Select Target" instance=ExtResource( 1 )]
-margin_top = 200.0
+margin_top = 202.0
+margin_bottom = 299.0
 group = ExtResource( 9 )
 
 [node name="Black Market" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Control"]
@@ -82,17 +84,56 @@ margin_bottom = -4.0
 theme = ExtResource( 2 )
 script = ExtResource( 11 )
 
-[node name="Gunman" parent="CanvasLayer/VBoxContainer/Control/Black Market" instance=ExtResource( 10 )]
+[node name="NormalItems" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Control/Black Market"]
+margin_right = 811.0
+margin_bottom = 299.0
+size_flags_horizontal = 3
+
+[node name="Gunman" parent="CanvasLayer/VBoxContainer/Control/Black Market/NormalItems" instance=ExtResource( 10 )]
 margin_right = 403.0
+margin_bottom = 299.0
 item = "Mercenary"
 description = "Helps you win battles. Takes a small portion of the loot if you win."
 price = 10
+icon = ExtResource( 13 )
 
-[node name="Food" parent="CanvasLayer/VBoxContainer/Control/Black Market" instance=ExtResource( 10 )]
+[node name="Food" parent="CanvasLayer/VBoxContainer/Control/Black Market/NormalItems" instance=ExtResource( 10 )]
 margin_left = 407.0
+margin_bottom = 299.0
 item = "Food"
-description = "1 Spent each day per person. If you don't have any, you starve!"
+description = "1 Spent each day per person (you + your mercenaries). If you don't have any, you starve!"
 price = 1
+
+[node name="SpecialItems" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Control/Black Market"]
+visible = false
+margin_left = 407.0
+margin_right = 811.0
+margin_bottom = 296.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Suit" parent="CanvasLayer/VBoxContainer/Control/Black Market/SpecialItems" instance=ExtResource( 10 )]
+margin_right = 404.0
+margin_bottom = 96.0
+item = "Intimidating Suit"
+description = "Increases % and € you can negotiate"
+icon = null
+
+[node name="Subgrade" parent="CanvasLayer/VBoxContainer/Control/Black Market/SpecialItems" instance=ExtResource( 10 )]
+margin_top = 100.0
+margin_right = 404.0
+margin_bottom = 196.0
+item = "Sub-grade"
+description = "Increases how many mercenaries fit in your sub"
+icon = null
+
+[node name="Exit" parent="CanvasLayer/VBoxContainer/Control/Black Market/SpecialItems" instance=ExtResource( 10 )]
+margin_top = 200.0
+margin_right = 404.0
+item = "Plane Ticket"
+description = "Buy this to end the game!"
+price = 90
+icon = null
 
 [node name="Get Funding" parent="CanvasLayer/VBoxContainer/Control" instance=ExtResource( 8 )]
 visible = false
@@ -118,7 +159,7 @@ align = 1
 [node name="Target" type="Panel" parent="CanvasLayer/VBoxContainer/Control/Set Sail"]
 margin_top = 33.0
 margin_right = 811.0
-margin_bottom = 162.0
+margin_bottom = 167.0
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Control/Set Sail/Target"]
@@ -129,53 +170,41 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Control/Set Sail/Target/HBoxContainer"]
-margin_top = 44.0
+margin_top = 47.0
 margin_right = 197.0
-margin_bottom = 84.0
+margin_bottom = 87.0
 text = "Selected Target:"
 
 [node name="TargetButton" parent="CanvasLayer/VBoxContainer/Control/Set Sail/Target/HBoxContainer" instance=ExtResource( 1 )]
 margin_left = 201.0
-margin_bottom = 129.0
+margin_bottom = 134.0
 size_flags_horizontal = 3
 disabled = true
 group = SubResource( 1 )
 show_current_target = true
 
 [node name="Info" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Control/Set Sail"]
-margin_top = 166.0
+margin_top = 171.0
 margin_right = 811.0
-margin_bottom = 296.0
+margin_bottom = 306.0
 size_flags_vertical = 3
 
-[node name="Crew" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Control/Set Sail/Info"]
-margin_right = 403.0
-margin_bottom = 130.0
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Control/Set Sail/Info/Crew"]
-margin_right = 403.0
-margin_bottom = 40.0
-theme = ExtResource( 2 )
-text = "Crew:"
-
 [node name="Go" type="Button" parent="CanvasLayer/VBoxContainer/Control/Set Sail/Info"]
-margin_left = 407.0
 margin_right = 811.0
-margin_bottom = 130.0
+margin_bottom = 135.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
-text = "Go"
+text = "Go (-10€ and +1 day)"
 
 [node name="MainUI" parent="CanvasLayer/VBoxContainer" instance=ExtResource( 6 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 437.0
+margin_top = 440.0
 margin_right = 819.0
 margin_bottom = 540.0
 
-[connection signal="item_bought" from="CanvasLayer/VBoxContainer/Control/Black Market/Gunman" to="CanvasLayer/VBoxContainer/Control/Black Market" method="_on_Gunman_item_bought"]
-[connection signal="item_bought" from="CanvasLayer/VBoxContainer/Control/Black Market/Food" to="CanvasLayer/VBoxContainer/Control/Black Market" method="_on_Food_item_bought"]
+[connection signal="item_bought" from="CanvasLayer/VBoxContainer/Control/Black Market/NormalItems/Gunman" to="CanvasLayer/VBoxContainer/Control/Black Market" method="_on_Gunman_item_bought"]
+[connection signal="item_bought" from="CanvasLayer/VBoxContainer/Control/Black Market/NormalItems/Food" to="CanvasLayer/VBoxContainer/Control/Black Market" method="_on_Food_item_bought"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Control/Set Sail/Info/Go" to="CanvasLayer/VBoxContainer/Control/Set Sail" method="_on_Go_pressed"]

@@ -1,3 +1,259 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://cool_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Big_UI.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Medium_UI.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ResultsScreen.gd" type="Script" id=4]
 
 [node name="ResultsScreen" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ResultsUI" type="VBoxContainer" parent="CanvasLayer"]
+anchor_left = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/ResultsUI"]
+margin_right = 819.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 2 )
+text = "Results:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/ResultsUI/Label"]
+show_behind_parent = true
+anchor_left = 0.4
+anchor_right = 0.6
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Results" type="Panel" parent="CanvasLayer/ResultsUI"]
+margin_top = 86.0
+margin_right = 819.0
+margin_bottom = 448.0
+size_flags_vertical = 3
+
+[node name="Info" type="VBoxContainer" parent="CanvasLayer/ResultsUI/Results"]
+anchor_left = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gains" type="VBoxContainer" parent="CanvasLayer/ResultsUI/Results/Info"]
+margin_right = 737.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Loot" type="HBoxContainer" parent="CanvasLayer/ResultsUI/Results/Info/Gains"]
+margin_right = 737.0
+margin_bottom = 74.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Gains/Loot"]
+margin_top = 22.0
+margin_right = 243.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Loot gained:"
+
+[node name="Amount" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Gains/Loot"]
+margin_left = 247.0
+margin_top = 22.0
+margin_right = 490.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "30"
+align = 2
+
+[node name="Suffix" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Gains/Loot"]
+margin_left = 494.0
+margin_top = 22.0
+margin_right = 737.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "0€"
+
+[node name="Costs" type="VBoxContainer" parent="CanvasLayer/ResultsUI/Results/Info"]
+margin_top = 78.0
+margin_right = 737.0
+margin_bottom = 153.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Investor" type="HBoxContainer" parent="CanvasLayer/ResultsUI/Results/Info/Costs"]
+margin_right = 737.0
+margin_bottom = 29.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Costs/Investor"]
+margin_right = 185.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Investors share:"
+
+[node name="Percent" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Costs/Investor"]
+margin_left = 189.0
+margin_right = 323.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "23"
+align = 2
+
+[node name="PercentS" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Costs/Investor"]
+margin_left = 327.0
+margin_right = 461.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "%"
+
+[node name="Amount" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Costs/Investor"]
+margin_left = 465.0
+margin_right = 599.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "30"
+align = 2
+
+[node name="Suffix" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Costs/Investor"]
+margin_left = 603.0
+margin_right = 737.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "0€"
+
+[node name="Mercenary" type="HBoxContainer" parent="CanvasLayer/ResultsUI/Results/Info/Costs"]
+margin_top = 33.0
+margin_right = 737.0
+margin_bottom = 62.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Costs/Mercenary"]
+margin_right = 219.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Mercenarys' share:"
+
+[node name="Percent" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Costs/Mercenary"]
+margin_left = 223.0
+margin_right = 348.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "23"
+align = 2
+
+[node name="PercentS" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Costs/Mercenary"]
+margin_left = 352.0
+margin_right = 478.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "%"
+
+[node name="Amount" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Costs/Mercenary"]
+margin_left = 482.0
+margin_right = 607.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "30"
+align = 2
+
+[node name="Suffix" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Costs/Mercenary"]
+margin_left = 611.0
+margin_right = 737.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "0€"
+
+[node name="Profit" type="VBoxContainer" parent="CanvasLayer/ResultsUI/Results/Info"]
+margin_top = 157.0
+margin_right = 737.0
+margin_bottom = 325.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Players" type="HBoxContainer" parent="CanvasLayer/ResultsUI/Results/Info/Profit"]
+margin_right = 737.0
+margin_bottom = 82.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Profit/Players"]
+margin_top = 26.0
+margin_right = 243.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Your Share:"
+
+[node name="Amount" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Profit/Players"]
+margin_left = 247.0
+margin_right = 490.0
+margin_bottom = 82.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "30"
+align = 2
+
+[node name="Suffix" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Profit/Players"]
+margin_left = 494.0
+margin_right = 737.0
+margin_bottom = 82.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "0€"
+
+[node name="PlayerDanger" type="HBoxContainer" parent="CanvasLayer/ResultsUI/Results/Info/Profit"]
+margin_top = 86.0
+margin_right = 737.0
+margin_bottom = 168.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Profit/PlayerDanger"]
+margin_top = 26.0
+margin_right = 366.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Notoriety gained:"
+
+[node name="Amount" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Profit/PlayerDanger"]
+margin_left = 370.0
+margin_right = 737.0
+margin_bottom = 82.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "3"
+valign = 1
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/ResultsUI"]
+margin_top = 452.0
+margin_right = 819.0
+margin_bottom = 540.0
+custom_fonts/font = ExtResource( 2 )
+text = "Back to port"
+
+[connection signal="pressed" from="CanvasLayer/ResultsUI/ContinueButton" to="." method="_on_ContinueButton_pressed"]

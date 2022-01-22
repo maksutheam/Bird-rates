@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://TutorialDialog.gd" type="Script" id=1]
+
+[node name="TutorialDialog" type="AcceptDialog"]
+margin_left = 221.0
+margin_top = 31.0
+margin_right = 478.0
+margin_bottom = 386.0
+window_title = "Tutorial"
+dialog_text = "So, you want to get enogh money to get a plane ticket?
+
+One could try fishing...If they were a fool! Illegal fishing boats have snapped them all up.
+
+Looks like we need teach them a lesson. And get some coin in the process, why not?"
+dialog_autowrap = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 8.0
+margin_top = 175.0
+margin_right = 249.0
+margin_bottom = 319.0
+text = "Don't show the tutorial again"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
