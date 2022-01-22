@@ -8,3 +8,7 @@ func _on_Gunman_item_bought():
 
 func _on_Food_item_bought():
 	global.food += 1
+
+
+func _on_Exit_item_bought():
+	global.win()

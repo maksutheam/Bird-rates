@@ -51,7 +51,7 @@ func check_offer():
 		if patience.value >= max_patience:
 			dialog.text = "I tire of this, come back when you take this seriously"
 			offer_button.disabled = true
-		elif min_share < player_offer_percent and player_investment < max_investment:
+		elif min_share <= player_offer_percent and player_investment <= max_investment:
 			#Good deal
 			dialog.text = "A good deal, I'd wager."
 			print_debug("jee")
@@ -63,24 +63,27 @@ func check_offer():
 			accept_button.disabled = true
 		elif player_offer_percent < min_share:
 			#Too little %
-			dialog.text = "A pitiful share. I want a larger %"
+			dialog.text = "A pitiful share. I want a larger %."
 			print_debug("lissää")
 			accept_button.disabled = true
 		
 		patience.value += 1
 	elif current_state == States.NEGOTITATE: #Neuvottelu
-		if patience >= max_patience:
+		if patience.value >= max_patience:
 			dialog.text = "Enough, eat lead!"
 			offer_button.disabled = true
 		if player_offer_percent < max_robbery:
 			#Good deal
-			dialog.text = "Fine, you can have that if you leave us alone"
+			dialog.text = "Fine, you can have that if you leave us alone."
 		elif player_offer_percent > max_robbery:
-			dialog.text = "Not giving up on that much loot"
+			dialog.text = "Not giving up on that much loot!"
 		
 		patience.value += 1
 	elif current_state == States.HOSTAGE:
-		pass
+		if player_investment > max_ransom:
+			dialog.text = "I am sorry, I do not have that much money."
+		elif player_investment <= max_ransom:
+			dialog.text = "So be it then."
 
 
 func _on_SpinBox_value_changed(value):
@@ -113,7 +116,7 @@ func set_state(new_state):
 				accept_button.disabled = true
 			else:
 				offer_button.disabled = false
-				accept_button.disabled = false
+				accept_button.disabled = true
 			budget.visible = true
 			share.visible = false
 			back_button.visible = true
@@ -121,14 +124,15 @@ func set_state(new_state):
 			budget_label.text = "Give me this much € and you get your boat and crew back:"
 			dialog.text = "How much for you to give my crew back?"
 			portrait.texture = kapteeni
+			offer_button.text = "Make offer (+1 day)"
 
 
 func calculate_offers():
 	randomize()
 	min_share = (randi() % 50 + 5) - (global.crnt_target_danger * 2) #int from 1 to 50 minus danger
 	max_investment = (global.crnt_target_danger + 9)
-	max_robbery = (global.crnt_target_danger + global.danger)
-	max_ransom = (global.crnt_target_danger * 2)
+	max_robbery = (randi() % 100)
+	max_ransom = (global.crnt_target_danger * 2) + (floor(rand_range(-3, 3)))
 	print_debug(min_share, "% ", max_investment, "€ ", max_robbery,"% ", max_ransom, "€")
 
 
@@ -136,7 +140,7 @@ func _on_OfferButton_pressed():
 	player_offer_percent = share_bar.value
 	player_investment = budget_amount.value
 	if current_state == 3:
-		global.food -= global.allies
+		global.next_day()
 	check_offer()
 
 

@@ -48,3 +48,8 @@ func _on_Ransom_pressed():
 	negotiation.show()
 	battle.hide()
 	battle_won.hide()
+
+
+func _on_BattleScreen_battle_lost():
+	global.lose_reason = "You died!"
+	global.lose()

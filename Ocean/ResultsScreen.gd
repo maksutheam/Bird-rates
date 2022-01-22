@@ -27,7 +27,7 @@ func _ready():
 		inv_per = 0
 		inv_shr = 0
 	investor_share.text = inv_shr as String
-	var rest_of_loot = (global.loot_gained - inv_shr) as String
+	var rest_of_loot = (global.loot_gained - inv_shr)
 	loot_amount.text = global.loot_gained as String
 	investor_percent.text = global.investors_share as String
 	mercenary_share.text = global.allies as String
@@ -52,11 +52,13 @@ func _ready():
 	if global.crnt_target_danger == 0:
 		global.max_danger += 1
 		global.min_danger += 1
-		global.danger += global.crnt_target_danger
+		global.danger += 1
+		player_danger.text = 1 as String
 	else:
 		global.max_danger += global.crnt_target_danger
 		global.min_danger += global.crnt_target_danger
 		global.danger += global.crnt_target_danger
+		player_danger.text = global.crnt_target_danger as String
 
 
 func _on_ContinueButton_pressed():

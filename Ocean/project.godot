@@ -18,16 +18,22 @@ _global_script_classes=[ {
 "class": "TargetShip",
 "language": "GDScript",
 "path": "res://target_ship.gd"
+}, {
+"base": "AcceptDialog",
+"class": "TutorialDialog",
+"language": "GDScript",
+"path": "res://TutorialDialog.gd"
 } ]
 _global_script_class_icons={
 "Gunman": "",
-"TargetShip": ""
+"TargetShip": "",
+"TutorialDialog": ""
 }
 
 [application]
 
 config/name="Piraattipeli"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

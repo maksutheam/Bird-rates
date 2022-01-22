@@ -16,21 +16,19 @@ var loot = 1
 
 func make_new_target():
 	randomize()
-	var rand_id = randi() % 5
-	var rand_danger = randi() % 3
+	var rand_id = randi() % 3
+	var rand_danger = randi() % (global.danger + 1)
 	
-	ship_type = rand_id
+	id = rand_id
 	
 	match rand_id: #Choose name and loot
 		0:
 			ship_type = "Fishing Boat"
 		1:
-			ship_type = "Cruiser"
-		2:
 			ship_type = "Cargo"
-		3:
-			ship_type = "Oil Tanker"
-		4:
+		2:
 			ship_type = "Battleship"
+
+
 	
 	danger = rand_danger

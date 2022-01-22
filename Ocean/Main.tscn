@@ -38,6 +38,7 @@ __meta__ = {
 }
 
 [node name="FishButton" type="Button" parent="UI/PortHUD/Buttons"]
+visible = false
 margin_right = 296.0
 margin_bottom = 178.0
 size_flags_horizontal = 3
@@ -47,7 +48,6 @@ custom_fonts/font = ExtResource( 6 )
 text = "Go Fishing"
 
 [node name="HeistButton" type="Button" parent="UI/PortHUD/Buttons"]
-margin_top = 182.0
 margin_right = 296.0
 margin_bottom = 360.0
 size_flags_horizontal = 3
@@ -75,10 +75,25 @@ margin_right = 619.0
 margin_bottom = 289.0
 
 [node name="TutorialDialog" parent="UI" instance=ExtResource( 7 )]
-margin_left = 307.0
-margin_top = 53.0
-margin_right = 564.0
-margin_bottom = 408.0
+margin_left = 172.0
+margin_top = 62.0
+margin_right = 807.0
+margin_bottom = 440.0
+dialog_text = "So, you want to leave? You will need a plane ticket, that can be purchased with money. A LOT of money. 
+
+You might have to rob a few ships to get it...
+
+The UI, from left to right:
+
+Money - Can be used to buy things, including a plane ticket. You get it by robbing ships.
+
+Food - You need this to survive to the next day. If you don't have any, you starve!
+
+Notoriety - As you rob ships, your notoriety increases, and ships will be more dangerous to rob. Get out before it gets too high!
+
+Mercenaries -  They help you win battles and take a small share of the loot. You need these for later ecounters.
+
+Day - How many days have passed since you started."
 
 [connection signal="pressed" from="UI/PortHUD/Buttons/FishButton" to="." method="_on_FishButton_pressed"]
 [connection signal="pressed" from="UI/PortHUD/Buttons/HeistButton" to="." method="_on_HeistButton_pressed"]

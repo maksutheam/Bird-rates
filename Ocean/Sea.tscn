@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Art/Ocean/SeaFG.PNG" type="Texture" id=1]
 [ext_resource path="res://Art/Ocean/SeaBG.PNG" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://SeaUI.gd" type="Script" id=14]
 [ext_resource path="res://SelectedTarget.tscn" type="PackedScene" id=15]
 [ext_resource path="res://ResultsScreen.tscn" type="PackedScene" id=16]
+[ext_resource path="res://TutorialDialog.tscn" type="PackedScene" id=17]
 
 [node name="Sea" type="Node2D"]
 
@@ -128,7 +129,7 @@ margin_left = 0.0
 margin_top = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
-current_state = 2
+current_state = 1
 
 [node name="BattleWonScreen" type="VBoxContainer" parent="SeaUI"]
 visible = false
@@ -268,9 +269,24 @@ text = "Negotiate"
 
 [node name="SelectedTarget" parent="SeaUI/BattleScreen" instance=ExtResource( 15 )]
 
+[node name="TutorialDialog" parent="SeaUI" instance=ExtResource( 17 )]
+visible = true
+margin_left = 515.0
+margin_top = 21.0
+margin_right = 840.0
+margin_bottom = 503.0
+dialog_text = "So, decided to do some looting? You have two options:
+
+Fight - You can try to take over the ship and get all the loot or hold the ships crew for a big ransom, but you might die in the process!
+
+If you choose to fight, you will fire a shot that has a 50% chance of hitting a guard. If there are guards still alive, they fire a shot that has a 50% chance of hitting  you/your mercenaries. After that, you fire a shot etc. until you or the enemy has no units.
+
+Negotiate - You can try to just ask for a portion of the loot in exchance for leaving them alone. Don't make too many bad offers or they'll run out of patience!"
+
 [connection signal="go_back" from="SeaUI/Negotiation" to="SeaUI" method="_on_Negotiation_go_back"]
 [connection signal="pressed" from="SeaUI/BattleWonScreen/Loot" to="SeaUI" method="_on_Loot_pressed"]
 [connection signal="pressed" from="SeaUI/BattleWonScreen/Ransom" to="SeaUI" method="_on_Ransom_pressed"]
+[connection signal="battle_lost" from="SeaUI/BattleScreen" to="SeaUI" method="_on_BattleScreen_battle_lost"]
 [connection signal="battle_won" from="SeaUI/BattleScreen" to="SeaUI" method="_on_BattleScreen_battle_won"]
 [connection signal="pressed" from="SeaUI/BattleScreen/Buttons/FightButton" to="SeaUI/BattleScreen" method="_on_FightButton_pressed"]
 [connection signal="pressed" from="SeaUI/BattleScreen/Buttons/NegotiateButton" to="SeaUI" method="_on_NegotiateButton_pressed"]

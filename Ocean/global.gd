@@ -31,9 +31,14 @@ var loot_gained := 0
 
 var show_tutorial := true
 
+var lose_reason := ""
+
 func next_day():
 	day += 1
-	food -= 1 * allies
+	if allies > 0:
+		food -= 1 * allies
+	else:
+		food -= 1
 	if food == 1:
 		#Älä anna pelaajan odottaa lunnaita neuvottelussa
 		one_food_left = true
@@ -42,3 +47,9 @@ func next_day():
 		pass
 	else:
 		one_food_left = false
+
+func win():
+	get_tree().change_scene("res://WinScreen.tscn")
+
+func lose():
+	get_tree().change_scene("res://LoseScreen.tscn")

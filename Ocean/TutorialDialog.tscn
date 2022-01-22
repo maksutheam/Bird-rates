@@ -7,6 +7,7 @@ margin_left = 221.0
 margin_top = 31.0
 margin_right = 478.0
 margin_bottom = 386.0
+popup_exclusive = true
 window_title = "Tutorial"
 dialog_text = "So, you want to get enogh money to get a plane ticket?
 
@@ -25,9 +26,10 @@ margin_top = 175.0
 margin_right = 249.0
 margin_bottom = 319.0
 text = "Don't show the tutorial again"
-align = 2
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="confirmed" from="." to="." method="_on_TutorialDialog_confirmed"]
 [connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
