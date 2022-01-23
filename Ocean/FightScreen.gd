@@ -9,6 +9,8 @@ onready var selected_target = $SelectedTarget
 export var is_player := true
 var total_fighters: int
 
+signal done_shooting
+
 func _ready():
 	print_debug(global.crnt_target_danger)
 	if is_player:
@@ -17,6 +19,20 @@ func _ready():
 	else:
 		player.hide()
 		set_fighters(global.crnt_target_danger)
+
+func shoot():
+	print_debug(get_children())
+	for gunman in get_children():
+		if gunman.has_signal("shoot"):
+			gunman.shoot()
+			print_debug("pum!")
+	emit_signal("done_shooting")
+
+func remove_gunman():
+	for gunman in get_children():
+		if gunman.has_signal("shoot"):
+			gunman.die()
+			break
 
 func set_fighters(new_fighters):
 	for i in new_fighters:

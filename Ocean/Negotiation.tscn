@@ -82,7 +82,7 @@ min_value = 1.0
 max_value = 99.0
 value = 1.0
 align = 1
-suffix = "00"
+suffix = "0"
 
 [node name="Label" type="Label" parent="PlayerOffer/HBoxContainer/Budget/HBoxContainer"]
 margin_left = 78.0

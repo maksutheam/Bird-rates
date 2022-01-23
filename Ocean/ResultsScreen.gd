@@ -22,7 +22,7 @@ func _ready():
 	
 	if not global.investors_share == 0:
 		inv_per = global.investors_share
-		inv_shr = (global.loot_gained / inv_per)
+		inv_shr = ceil((global.loot_gained / inv_per))
 	else:
 		inv_per = 0
 		inv_shr = 0

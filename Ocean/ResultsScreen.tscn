@@ -258,7 +258,6 @@ custom_fonts/font = ExtResource( 2 )
 text = "Back to port"
 
 [node name="TutorialDialog" parent="CanvasLayer" instance=ExtResource( 5 )]
-visible = true
 margin_left = 309.0
 margin_top = 113.0
 margin_right = 768.0

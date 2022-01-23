@@ -5,6 +5,7 @@
 
 [sub_resource type="Animation" id=4]
 resource_name = "Die"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
 tracks/0/interp = 1
@@ -52,6 +53,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "SHoot"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
 tracks/0/interp = 1
@@ -70,8 +72,6 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 1
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
-
-[node name="GunmanAnimation" type="AnimationPlayer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Die = SubResource( 4 )
