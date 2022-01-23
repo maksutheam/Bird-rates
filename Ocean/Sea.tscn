@@ -212,7 +212,7 @@ is_player = false
 [node name="Buttons" type="VBoxContainer" parent="SeaUI/BattleScreen"]
 margin_top = 397.0
 margin_right = 905.0
-margin_bottom = 537.0
+margin_bottom = 525.0
 size_flags_horizontal = 3
 theme = ExtResource( 6 )
 alignment = 1
@@ -259,14 +259,14 @@ text = "5"
 [node name="FightButton" type="Button" parent="SeaUI/BattleScreen/Buttons"]
 margin_top = 86.0
 margin_right = 905.0
-margin_bottom = 111.0
+margin_bottom = 105.0
 size_flags_vertical = 3
 text = "Fight"
 
 [node name="NegotiateButton" type="Button" parent="SeaUI/BattleScreen/Buttons"]
-margin_top = 115.0
+margin_top = 109.0
 margin_right = 905.0
-margin_bottom = 140.0
+margin_bottom = 128.0
 size_flags_vertical = 3
 text = "Negotiate"
 

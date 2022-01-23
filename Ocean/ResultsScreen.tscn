@@ -11,6 +11,14 @@ script = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0431373, 0.0431373, 0.105882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ResultsUI" type="VBoxContainer" parent="CanvasLayer"]
 anchor_left = 0.1
 anchor_right = 0.9
@@ -43,7 +51,7 @@ __meta__ = {
 [node name="Results" type="Panel" parent="CanvasLayer/ResultsUI"]
 margin_top = 86.0
 margin_right = 819.0
-margin_bottom = 448.0
+margin_bottom = 454.0
 size_flags_vertical = 3
 
 [node name="Info" type="VBoxContainer" parent="CanvasLayer/ResultsUI/Results"]
@@ -56,28 +64,28 @@ __meta__ = {
 
 [node name="Gains" type="VBoxContainer" parent="CanvasLayer/ResultsUI/Results/Info"]
 margin_right = 737.0
-margin_bottom = 74.0
+margin_bottom = 77.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Loot" type="HBoxContainer" parent="CanvasLayer/ResultsUI/Results/Info/Gains"]
 margin_right = 737.0
-margin_bottom = 74.0
+margin_bottom = 77.0
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Gains/Loot"]
-margin_top = 22.0
+margin_top = 24.0
 margin_right = 243.0
-margin_bottom = 51.0
+margin_bottom = 53.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 text = "Loot gained:"
 
 [node name="Amount" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Gains/Loot"]
 margin_left = 247.0
-margin_top = 22.0
+margin_top = 24.0
 margin_right = 490.0
-margin_bottom = 51.0
+margin_bottom = 53.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 text = "30"
@@ -85,17 +93,17 @@ align = 2
 
 [node name="Suffix" type="Label" parent="CanvasLayer/ResultsUI/Results/Info/Gains/Loot"]
 margin_left = 494.0
-margin_top = 22.0
+margin_top = 24.0
 margin_right = 737.0
-margin_bottom = 51.0
+margin_bottom = 53.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 text = "0€"
 
 [node name="Costs" type="VBoxContainer" parent="CanvasLayer/ResultsUI/Results/Info"]
-margin_top = 78.0
+margin_top = 81.0
 margin_right = 737.0
-margin_bottom = 153.0
+margin_bottom = 159.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -191,9 +199,9 @@ custom_fonts/font = ExtResource( 3 )
 text = "0€"
 
 [node name="Profit" type="VBoxContainer" parent="CanvasLayer/ResultsUI/Results/Info"]
-margin_top = 157.0
+margin_top = 163.0
 margin_right = 737.0
-margin_bottom = 325.0
+margin_bottom = 331.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -251,7 +259,7 @@ text = "3"
 valign = 1
 
 [node name="ContinueButton" type="Button" parent="CanvasLayer/ResultsUI"]
-margin_top = 452.0
+margin_top = 458.0
 margin_right = 819.0
 margin_bottom = 540.0
 custom_fonts/font = ExtResource( 2 )

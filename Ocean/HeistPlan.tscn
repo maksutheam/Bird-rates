@@ -23,6 +23,14 @@ resource_name = "TargetGroup"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0705882, 0.0823529, 0.152941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchor_left = 0.1
 anchor_top = 0.05
@@ -52,64 +60,63 @@ __meta__ = {
 }
 
 [node name="Select Target" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 47.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_top = 39.0
 script = ExtResource( 7 )
 button_group = ExtResource( 9 )
 
 [node name="TargetButton" parent="CanvasLayer/VBoxContainer/Control/Select Target" instance=ExtResource( 1 )]
-margin_bottom = 97.0
+margin_right = 819.0
+margin_bottom = 101.0
 group = ExtResource( 9 )
 
 [node name="TargetButton2" parent="CanvasLayer/VBoxContainer/Control/Select Target" instance=ExtResource( 1 )]
-margin_top = 101.0
-margin_bottom = 198.0
+margin_top = 105.0
+margin_right = 819.0
+margin_bottom = 206.0
 group = ExtResource( 9 )
 
 [node name="TargetButton3" parent="CanvasLayer/VBoxContainer/Control/Select Target" instance=ExtResource( 1 )]
-margin_top = 202.0
-margin_bottom = 299.0
+margin_top = 210.0
+margin_right = 819.0
+margin_bottom = 311.0
 group = ExtResource( 9 )
 
 [node name="Black Market" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Control"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 47.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_top = 39.0
 theme = ExtResource( 2 )
 script = ExtResource( 11 )
 
 [node name="NormalItems" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Control/Black Market"]
-margin_right = 811.0
-margin_bottom = 299.0
+margin_right = 819.0
+margin_bottom = 311.0
 size_flags_horizontal = 3
 
 [node name="Gunman" parent="CanvasLayer/VBoxContainer/Control/Black Market/NormalItems" instance=ExtResource( 10 )]
-margin_right = 267.0
-margin_bottom = 299.0
+margin_right = 270.0
+margin_bottom = 311.0
 item = "Mercenary"
 description = "Helps you win battles. Takes a small portion of the loot if you win."
 price = 10
 icon = ExtResource( 13 )
 
 [node name="Food" parent="CanvasLayer/VBoxContainer/Control/Black Market/NormalItems" instance=ExtResource( 10 )]
-margin_left = 271.0
-margin_right = 539.0
-margin_bottom = 299.0
+margin_left = 274.0
+margin_right = 544.0
+margin_bottom = 311.0
 item = "Food"
 description = "1 Spent each day per person (you + your mercenaries). If you don't have any, you starve!"
 price = 1
 
 [node name="Exit" parent="CanvasLayer/VBoxContainer/Control/Black Market/NormalItems" instance=ExtResource( 10 )]
-margin_left = 543.0
-margin_bottom = 299.0
+margin_left = 548.0
+margin_right = 819.0
+margin_bottom = 311.0
 item = "Plane Ticket"
 description = "Buy this to end the game!"
 price = 90
@@ -142,20 +149,20 @@ icon = null
 
 [node name="Get Funding" parent="CanvasLayer/VBoxContainer/Control" instance=ExtResource( 8 )]
 visible = false
+margin_left = 0.0
+margin_top = 39.0
+margin_right = 0.0
+margin_bottom = 0.0
 
 [node name="Set Sail" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 47.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_top = 39.0
 script = ExtResource( 12 )
 sea = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Control/Set Sail"]
-margin_right = 811.0
+margin_right = 819.0
 margin_bottom = 29.0
 custom_fonts/font = ExtResource( 4 )
 text = "Overview"
@@ -163,8 +170,8 @@ align = 1
 
 [node name="Target" type="Panel" parent="CanvasLayer/VBoxContainer/Control/Set Sail"]
 margin_top = 33.0
-margin_right = 811.0
-margin_bottom = 164.0
+margin_right = 819.0
+margin_bottom = 170.0
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Control/Set Sail/Target"]
@@ -175,28 +182,29 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Control/Set Sail/Target/HBoxContainer"]
-margin_top = 45.0
+margin_top = 48.0
 margin_right = 197.0
-margin_bottom = 85.0
+margin_bottom = 88.0
 text = "Selected Target:"
 
 [node name="TargetButton" parent="CanvasLayer/VBoxContainer/Control/Set Sail/Target/HBoxContainer" instance=ExtResource( 1 )]
 margin_left = 201.0
-margin_bottom = 131.0
+margin_right = 819.0
+margin_bottom = 137.0
 size_flags_horizontal = 3
 disabled = true
 group = SubResource( 1 )
 show_current_target = true
 
 [node name="Info" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Control/Set Sail"]
-margin_top = 168.0
-margin_right = 811.0
-margin_bottom = 299.0
+margin_top = 174.0
+margin_right = 819.0
+margin_bottom = 311.0
 size_flags_vertical = 3
 
 [node name="Go" type="Button" parent="CanvasLayer/VBoxContainer/Control/Set Sail/Info"]
-margin_right = 811.0
-margin_bottom = 131.0
+margin_right = 819.0
+margin_bottom = 137.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 text = "Go (-10€ and +1 day)"
