@@ -1,19 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Big_UI.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Art/Characters/Player.PNG" type="Texture" id=2]
 [ext_resource path="res://SelectedTarget.tscn" type="PackedScene" id=3]
 [ext_resource path="res://FightScreen.gd" type="Script" id=4]
+[ext_resource path="res://Art/Ocean/BattleBG.PNG" type="Texture" id=5]
 
-[node name="Fighters" type="ColorRect"]
+[node name="Fighters" type="TextureRect"]
+self_modulate = Color( 0.976471, 0.976471, 0.976471, 1 )
 margin_right = 299.0
 margin_bottom = 485.0
 size_flags_horizontal = 3
-color = Color( 0.729412, 0.643137, 0.129412, 1 )
+texture = ExtResource( 5 )
+stretch_mode = 1
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="."]
 visible = false
