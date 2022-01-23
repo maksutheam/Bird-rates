@@ -53,3 +53,7 @@ func _on_Ransom_pressed():
 func _on_BattleScreen_battle_lost():
 	global.lose_reason = "You died!"
 	global.lose()
+
+
+func _on_Negotiation_go_to_results():
+	get_tree().change_scene("res://ResultsScreen.tscn")

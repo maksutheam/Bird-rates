@@ -114,12 +114,8 @@ func set_state(new_state):
 			dialog.text = "How much to leave us alone?"
 			portrait.texture = palkkasoturi
 		2:#Hostage
-			if global.one_food_left:
-				offer_button.disabled = true
-				accept_button.disabled = true
-			else:
-				offer_button.disabled = false
-				accept_button.disabled = true
+			offer_button.disabled = false
+			accept_button.disabled = true
 			budget.visible = true
 			share.visible = false
 			back_button.visible = true
@@ -159,7 +155,8 @@ func _on_Accept_pressed():
 		offer_button.disabled = true
 		accept_button.disabled = true
 	elif current_state == 1:
-		global.loot_gained = (global.crnt_target_danger / player_offer_percent)
+		global.loot_gained = (global.crnt_target_danger / player_offer_percent) + 1
+		print_debug(global.crnt_target_danger / player_offer_percent)
 		print_debug(global.loot_gained)
 		emit_signal("go_to_results")
 	elif current_state == 2:

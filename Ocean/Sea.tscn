@@ -286,6 +286,7 @@ If you choose to fight, your chance for winning will be how many mercenaries you
 Negotiate - You can try to just ask for a portion of the loot in exchance for leaving them alone. Don't make too many bad offers or they'll run out of patience!"
 
 [connection signal="go_back" from="SeaUI/Negotiation" to="SeaUI" method="_on_Negotiation_go_back"]
+[connection signal="go_to_results" from="SeaUI/Negotiation" to="SeaUI" method="_on_Negotiation_go_to_results"]
 [connection signal="pressed" from="SeaUI/BattleWonScreen/Loot" to="SeaUI" method="_on_Loot_pressed"]
 [connection signal="pressed" from="SeaUI/BattleWonScreen/Ransom" to="SeaUI" method="_on_Ransom_pressed"]
 [connection signal="battle_lost" from="SeaUI/BattleScreen" to="SeaUI" method="_on_BattleScreen_battle_lost"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://cool_theme.tres" type="Theme" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Fishing.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Big_UI.tres" type="DynamicFont" id=6]
 [ext_resource path="res://TutorialDialog.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SeaBG.gd" type="Script" id=8]
+[ext_resource path="res://Art/TitleScreen/Meri.PNG" type="Texture" id=9]
+[ext_resource path="res://Art/Boats/SubSmall.PNG" type="Texture" id=10]
 
 [node name="Port" type="Node2D"]
 script = ExtResource( 1 )
@@ -68,12 +71,6 @@ size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "Next Day"
 
-[node name="mummo" type="Button" parent="UI/PortHUD"]
-margin_left = 496.0
-margin_top = 190.0
-margin_right = 619.0
-margin_bottom = 289.0
-
 [node name="TutorialDialog" parent="UI" instance=ExtResource( 7 )]
 margin_left = 172.0
 margin_top = 62.0
@@ -94,6 +91,20 @@ Notoriety - As you rob ships, your notoriety increases, and ships will be more d
 Mercenaries -  They help you win battles and take a small share of the loot. You need these for later ecounters.
 
 Day - How many days have passed since you started."
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource( 8 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 9 )
+centered = false
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 740, 262 )
+texture = ExtResource( 10 )
 
 [connection signal="pressed" from="UI/PortHUD/Buttons/FishButton" to="." method="_on_FishButton_pressed"]
 [connection signal="pressed" from="UI/PortHUD/Buttons/HeistButton" to="." method="_on_HeistButton_pressed"]
